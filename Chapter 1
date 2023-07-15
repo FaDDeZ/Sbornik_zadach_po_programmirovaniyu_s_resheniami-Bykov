@@ -1,0 +1,255 @@
+//1
+double f(double x, double y) {
+	return sqrt(x*x + y*y);
+}
+
+int main()
+{
+	int x, y;
+	cin >> x >> y;
+	cout << f(x, y);
+}
+
+//2
+double f(double x1, double y1, double x2, double y2) {
+	return sqrt((x2-x1) + (y2-y1));
+}
+
+int main()
+{
+	int x1, y1;
+	int x2, y2;
+	x1 = rand() % 20;
+	y1 = rand() % 20;
+	x2 = rand() % 20;
+	y2 = rand() % 20;
+	cout << f(x1, y1, x2, y2);
+}
+
+//3
+int f(int m2, int m1, int m) {
+	return m2*100+m1*10+m;
+}
+
+int main()
+{
+	int m2, m1, m;
+	m = rand() % 10;
+	m1 = rand() % 10;
+	m2 = rand() % 10;
+	cout << f(m2,m1,m);
+}
+
+//4
+int f(int m2, int m1, int m) {
+	return m2*100+m1*10+m;
+}
+
+int main()
+{
+	int m2, m1, m;
+	m = 7;
+	m1 = 6;
+	m2 = 5;
+	cout << f(m2,m1,m);
+}
+
+//5
+int f(int m1, int m) {
+	return m1 + m;
+}
+
+int f(int m2, int m1, int m) {
+	return m2 + m1 + m;
+}
+
+int f(int m) {
+	return m;
+}
+
+int main()
+{
+	int m2, m1, m;
+	m = 7;
+	m1 = 6;
+	m2 = 5;
+	cout << f(m2, m1, m) << endl << f(m1, m) << endl << f(m);
+}
+
+//6
+int f(int m1, int m) {
+	return m1 + m;
+}
+
+int f(double m2, double m1) {
+	return m2 - m1;
+}
+
+
+int main()
+{
+	int u = f(3, 4);
+	double v = f(20.5, 10.5);
+	cout << u << endl << v;
+}
+
+//7
+void f(double& a, double& b, double c, double q) {
+	a = c * sin(q);
+	b = c * cos(q);
+}
+
+int main()
+{
+	const double pi = 3.1415;
+	double a;
+	double b;
+ 	double c = rand() % 20;
+	double q = (rand() % 45*pi)/180;
+	f(a, b, c, q);
+	cout << a <<endl << b;
+}
+
+//8
+void f(double* pa, double* pb, double c, double q) {
+	*pa = c * sin(q);
+	*pb = c * cos(q);
+}
+
+int main()
+{
+	const double pi = 3.1415;
+	double a;
+	double b;
+	double* pa = &a;
+	double* pb = &b;
+ 	double c = rand() % 20;
+	double q = (rand() % 45*pi)/180;
+	f(pa, pb, c, q);
+	cout << a <<endl << b;
+}
+
+//9
+void swap(int* a, int* b){
+	int tmp;
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+
+int main()
+{
+	int a{ 12 };
+	int b{ 4 };
+	int* pa = &a;
+	int* pb = &b;
+	swap(pa, pb);
+	cout << a <<endl << b;
+}
+
+//10
+void swap(int& a, int& b){
+	int tmp;
+	tmp = a;
+	a = b;
+	b = tmp;
+}
+
+int main()
+{
+	int a{ 12 };
+	int b{ 4 };
+	swap(a, b);
+	cout << a <<endl << b;
+}
+
+//11
+void swap(int* a, int* b, int* c){
+	int tmp;
+	tmp = *a;
+	*a = *b;
+	*b = *c;
+	*c = tmp;
+}
+
+int main()
+{
+	int a{ 12 };
+	int b{ 4 };
+	int c{ 9 };
+	int* pa{ &a };
+	int* pb{ &b };
+	int* pc{ &c };
+	swap(pa, pb, pc);
+	cout << a <<endl << b << endl << c;
+}
+
+//12
+void swap(int& a, int& b, int& c){
+	int tmp;
+	tmp = a;
+	a = b;
+	b = c;
+	c = tmp;
+}
+
+int main()
+{
+	int a{ 12 };
+	int b{ 4 };
+	int c{ 9 };
+	swap(a, b, c);
+	cout << a <<endl << b << endl << c;
+}
+
+//13
+bool f(int& a, int& b, int x, int y){
+	if (y == 0) {
+		return false;
+	}
+	else {
+		a = x * y;
+		b = x / y;
+		return true;
+	}
+}
+
+int main()
+{
+	int a{ 1 };
+	int b{ 1 };
+	int x = 10;
+	int y = 0;
+	cout << f(a, b, x, y) << endl;
+	cout << a << endl << b;
+}
+
+//14
+double f(int x, int y){
+	if (x == 0 && y == 0) return 0;
+	else if (y == 0) return 12 / x;
+	else if (x == 0) return 12 / y;
+	else return 144 / (x * y);
+}
+
+int main()
+{
+	int x{ 12 };
+	int y{ 12 };
+	cout << f(x, y);
+}
+
+//15
+double f(int x, int y){
+	if (x > y) return x - y;
+	else return y - x;
+}
+
+int main()
+{
+	int x{ 12 };
+	int y{ 10 };
+	cout << f(x, y);
+}
+
+//16
