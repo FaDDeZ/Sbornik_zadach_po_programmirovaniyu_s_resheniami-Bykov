@@ -1,0 +1,33 @@
+//1
+int f(int x){
+	if (x == 0) return 0;
+	if (x == 1 || x == 2) return 1;
+	int old_value{ 0 };
+	int value{ 1 };
+	int hold;
+	for (int i = 1; i < x; i++) {
+		hold = value;
+		value += old_value;
+		old_value = hold;
+	}
+	return value;
+}
+
+int main()
+{
+	int x{ 35 };
+	cout << f( x );
+}
+
+//2
+int f(int x){
+	if (x == 0) return 0;
+	if (x == 1 || x == 2) return 1;
+	return f(x - 1) + f(x - 2);
+}
+
+int main()
+{
+	int x{ 35 };
+	cout << f( x );
+}
