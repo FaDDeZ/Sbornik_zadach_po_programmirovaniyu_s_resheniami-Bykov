@@ -240,7 +240,7 @@ int main()
 }
 
 //15
-double f(int x, int y){
+int f(int x, int y){
 	if (x > y) return x - y;
 	else return y - x;
 }
@@ -253,3 +253,167 @@ int main()
 }
 
 //16
+double f(double x, double y){
+	if (x > y) return x - y;
+	else return y - x;
+}
+
+int main()
+{
+	double x{ 12.6532 };
+	double y{ 10.999 };
+	cout << f(x, y);
+}
+
+//17
+double f(double x, double y, double z){
+	double m, n, k;
+	if (x > y > z) {
+		n = x;
+		m = y;
+		k = z;
+		return m * n / k;
+	}
+	else if (y > x > z) {
+		n = y;
+		m = x;
+		k = z;
+		return m * n / k;
+	}
+	else if (x > z > y) {
+		n = x;
+		m = z;
+		k = y;
+		return m * n / k;
+	}
+	else if (z > x > y) {
+		n = z;
+		m = x;
+		k = y;
+		return m * n / k;
+	}
+	else if (z > y > x) {
+		n = z;
+		m = y;
+		k = x;
+		return m * n / k;
+	}
+	else {
+		n = y;
+		m = z;
+		k = x;
+		return m * n / k;
+	}
+}
+
+int main()
+{
+	double x{ 2 };
+	double y{ 10 };
+	double z{ 8 };
+	cout << f(x, y, z);
+}
+
+//18
+double f(double x, double y, double z){
+	if (x - 2*y + z > 0 && 2*x - y - z > 0) return x - y;
+	else if (2*y - x - z > 0 && x + y - 2*z > 0) return y - z;
+	else return z - x;
+}
+
+int main()
+{
+	double x{ 2 };
+	double y{ 10 };
+	double z{ 8 };
+	cout << f(x, y, z);
+}
+
+//19
+double f(double x, double y, double z){
+	if (x < y && x < z) return x;
+	else if (y < x && y < z) return y;
+	else return z;
+}
+
+int main()
+{
+	double x{ 2 };
+	double y{ 10 };
+	double z{ 8 };
+	cout << f(x, y, z);
+}
+
+//20
+double f(double x, double y, double z){
+	if (x > y && x > z) return x;
+	else if (y > x && y > z) return y;
+	else return z;
+}
+
+int main()
+{
+	double x{ 2 };
+	double y{ 10 };
+	double z{ 8 };
+	cout << f(x, y, z);
+}
+
+//21
+int f(int* x, int* y, int* z){
+	if (*x > *y && *x > *z) return *x;
+	else if (*y > *x && *y > *z) return *y;
+	else return *z;
+}
+
+int main()
+{
+	int x{ 2 };
+	int y{ 10 };
+	int z{ 8 };
+	int* px{ &x };
+	int* py{ &y };
+	int* pz{ &z };
+	cout << f(px, py, pz);
+}
+
+//22
+bool f(int x, int y, int z){
+	if ((x ^ 2) + (y ^ 2) == (z ^ 2)) return 1;
+	else return 0;
+}
+
+int main()
+{
+	int x{ 3 };
+	int y{ 4 };
+	int z{ 5 };
+	cout << f(x, y, z);
+}
+
+//23
+bool f(int x, int y){
+	if (x % y == 0 || y % x == 0) return 1;
+	else return 0;
+}
+
+int main()
+{
+	int x{ 3 };
+	int y{ 7 };
+	cout << f(x, y);
+}
+
+//24
+bool f(int x, int y, int z){
+	if (z > x + y || x > z + y || y > z + x) return 1;
+	else return 0;
+}
+
+int main()
+{
+	int x{ 3 };
+	int y{ 7 };
+	int z{ 6 };
+	cout << f(x, y, z);
+}
