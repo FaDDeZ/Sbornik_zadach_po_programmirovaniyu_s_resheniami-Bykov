@@ -1,0 +1,346 @@
+//28
+int f(int h, int m, int s) {
+	return h * 3600 + m * 60 + s;
+}
+
+int main()
+{
+	int h{ 24 }, m{ 60 }, s{ 42 };
+	cout << f(h, m, s);
+}
+
+//29
+int f(int m, int d) {
+	return m * 30 + d;
+}
+
+int main()
+{
+	int m{ 5 }, d{ 12 };
+	cout << f(m, d);
+}
+
+//30
+int f(int m, int d) {
+	int sum{ 0 };
+	for (int i = 1; i <= m; i++) {
+		if (i % 2 == 0) {
+			sum += 30;
+		}
+		else sum += 31;
+	}
+	return sum + d;
+}
+
+int main()
+{
+	int m{ 5 }, d{ 12 };
+	cout << f(m, d);
+}
+
+//31
+void f(int &a, int &b, int n) {
+	b = n % 10;
+	a = n / 10;
+}
+
+int main()
+{
+	int a, b;
+	int n{ 54 };
+	f(a, b, n);
+	cout << a << endl << b;
+}
+
+//32
+void f(int *a, int *b, int n) {
+	*b = n % 10;
+	*a = n / 10;
+}
+
+int main()
+{
+	int a, b;
+	int n{ 54 };
+	int* pa = &a;
+	int* pb = &b;
+	f(pa, pb, n);
+	cout << a << endl << b;
+}
+
+//33
+int f(int a, int b, int c) {
+	if (a > b and a > c)	return a;
+	else if (b > c and b > a)	return b;
+	else return c;
+}
+
+int main()
+{
+	int a{ 5 }, b{ 7 }, c{ 9 };
+	cout << f(a, b, c);
+}
+
+//34
+int f(int a, int b, int c) {
+	int sum{ 0 };
+	for (int i : {a, b, c})	if (i >= 0 and i <= 999) sum += i;
+	return sum;
+}
+
+int main()
+{
+	int a{ -5555 }, b{ 765 }, c{ 998 };
+	cout << f(a, b, c);
+}
+
+//35
+int f(int a, int b, int c) {
+	for (int i = 0; i < 1000; i++) {
+		if (i == a) return a;
+		if (i == b) return b;
+		if (i == c) return c;
+	}
+}
+
+int main()
+{
+	int a{ 543 }, b{ 765 }, c{ 998 };
+	cout << f(a, b, c);
+}
+
+//36
+bool f(int n){
+	if (n % 2 == 0) return 1;
+	else return 0;
+}
+
+int main()
+{
+	int n{ 5 };
+	printf("%d", f(n));
+}
+
+//37
+bool f(int n, int m){
+	if (n % m == 0) return 1;
+	else return 0;
+}
+
+int main()
+{
+	int n{ 50 }, m{ 10 };
+	printf("%d", f(n, m));
+}
+
+//38
+int f(int n, int m) {
+	int sum{ 0 };
+	while (n != m) {
+		sum += n;
+		n++;
+	}
+	return sum;
+}
+
+int main()
+{
+	int n{ 12 }, m{ 24 };
+	printf("%d", f(n, m));
+}
+
+//39
+void f(int& s, int n, int m) {
+	while (n != m) {
+		s += n;
+		n++;
+	}
+}
+
+int main()
+{
+	int n{ 12 }, m{ 24 };
+	int s{ 0 };
+	f(s, n, m);
+	printf("%d", s);
+}
+
+//40
+int f(int n, int m) {
+	int sum{ 0 };
+	while (n != m) {
+		sum *= n;
+		n++;
+	}
+	return sum;
+}
+
+int main()
+{
+	int n{ 12 }, m{ 24 };
+	printf("%d", f(n, m));
+}
+
+//41
+int f(int m) {
+	if (m == 1) return 1;
+	return m * f(m - 1);
+}
+
+int main()
+{
+	int m{ 12 };
+	printf("%d", f(12));
+}
+
+//42
+void f(int& m2, int& m1, int& m0, int n) {
+	m0 = n % 10;
+	m2 = n / 100;
+	m1 = n / 10 % 10;
+}
+
+int main()
+{
+	int m2, m1, m0;
+	int n{ 512 };
+	f(m2, m1, m0, n);
+	printf("%d \n%d \n%d", m2, m1, m0);
+}
+
+//43
+void f(int& m4, int& m3, int& m2, int& m1, int& m0, int n) {
+	m0 = n % 10;
+	m2 = n / 100 % 10;
+	m1 = n / 10 % 10;
+	m3 = n / 1000 % 10;
+	m4 = n / 10000;
+}
+
+int main()
+{
+	int m4, m3, m2, m1, m0;
+	int n{ 51324 };
+	f(m4, m3, m2, m1, m0, n);
+	printf("%d \n%d \n%d \n%d \n%d", m4, m3, m2, m1, m0);
+}
+
+//44
+void f(int* arr, long n) {
+	*(arr+4) = n % 10;
+	*(arr+3) = n / 10 % 10;
+	*(arr+2) = n / 100 % 10;
+	*(arr+1) = n / 1000 % 10;
+	*(arr) = n / 10000;
+}
+
+int main()
+{
+	int arr[5];
+	int* parr = arr;
+	long n{ 75823 };
+	f(parr, n);
+	for (int i = 0; i < 5; i++) {
+		cout << *(arr+i) << endl;
+	}
+}
+
+//45
+void f(int &h, int &m, int &s, int sec) {
+	h = sec / 3600;
+	m = (sec - h * 3600) / 60;
+	s = sec - h * 3600 - m * 60;
+}
+
+int main()
+{
+	int h, m, s;
+	int sec{ 54332 };
+	f(h, m, s, sec);
+	cout << h << endl << m << endl << s;
+}
+
+//46
+int f(int x) {
+	int res{ 0 };
+	while (x)
+	{
+		res = res * 10 + x % 10;
+		x /= 10;
+	}
+	return res;
+}
+
+int main()
+{
+	int x{ 5433 };
+	cout << f(x);
+}
+
+//47
+bool f(int x) {
+	int old{ x };
+	int res{ 0 };
+	while (x)
+	{
+		res = res * 10 + x % 10;
+		x /= 10;
+	}
+	if (res == old) return 1;
+	else return 0;
+}
+
+int main()
+{
+	int x{ 54345 };
+	cout << f(x);
+}
+
+//48
+int f(int* arr, int m, int n) {
+	int sum{ 0 };
+	int old{ m };
+	int tmp;
+	int res{ 0 };
+	int index{ 0 };
+	while (m <= n) {
+		tmp = m;
+		while (tmp)
+		{
+			res = res * 10 + tmp % 10;
+			tmp /= 10;
+		}
+		if (res == old) {
+			sum += 1;
+			*(arr + index) = res;
+			index++;
+		}
+		m++;
+		old = m;
+		res = 0;
+	}
+	return sum;
+}
+
+int main()
+{
+	int m{ 56545 };
+	int n{ 66666 };
+	int arr[102];
+	int* parr = arr;
+	cout << f(parr, m, n);
+	for (int i = 0; i < sizeof(arr) / sizeof(arr[0]); i++) {
+		cout << "Arr[" << i << "]: " << arr[i] << endl;
+	}
+}
+
+//49
+
+
+//50
+
+
+//51
+
+
+//52
