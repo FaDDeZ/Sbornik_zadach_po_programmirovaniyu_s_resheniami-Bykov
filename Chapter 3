@@ -335,7 +335,26 @@ int main()
 }
 
 //49
+int f(int m, int n) {
+	int res{ 1 };
+	int *arr{ new int[100]{} };
+	int counter{ 0 };
+	while (res <= m || res <= n){
+		if (m % res == 0 and n % res == 0) {
+			arr[counter] = res;
+			counter++;
+		}
+		res++;
+	}
+	return arr[counter-1];
+}
 
+int main()
+{
+	int m{ 44 };
+	int n{ 22 };
+	cout << f(m, n);
+}
 
 //50
 
