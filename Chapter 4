@@ -1,0 +1,138 @@
+//54
+int main()
+{
+	int x1{ 24 }, x2(45), x3{ 12 };
+	if (x1 < x2 && x1 < x3) cout << x1;
+	else if (x2 < x1 && x2 < x3) cout << x2;
+	else cout << x3;
+}
+
+//55
+int f(int x1, int x2, int x3) {
+	if (x1 < x2 && x1 < x3) return x1;
+	else if (x2 < x1 && x2 < x3) return x2;
+	else return x3;
+}
+
+int main()
+{
+	int x1{ 24 }, x2(45), x3{ 12 };
+	cout << f(x1, x2, x3);
+}
+
+//56
+string f(int x) {
+	switch (x) {
+	case 2: return "D";
+	case 3: return "C";
+	case 4: return "B";
+	case 5: return "A";
+	default: return "Wrong";
+	}
+}
+
+int main()
+{
+	srand(time(0));
+	int x{ 2 + rand() % 3 };
+	cout << f(x);
+}
+
+//57
+int f(int m, int n) {
+	int sum{ 0 };
+	if (m > n) {
+		int tmp{ n };
+		n = m;
+		m = tmp;
+	}
+	for (int i = m; i <= n; i++) {
+		sum += i;
+	}
+	return sum;
+}
+
+int main()
+{
+	srand(time(0));
+	int m{rand() % 101 };
+	int n{rand() % 101 };
+	cout << f(m, n);
+}
+
+//58
+int f(int N, int n) {
+	while (N % n != 0) {
+		N++;
+	}
+	return N;
+}
+
+int main()
+{
+	srand(time(0));
+	int N{11 + rand() % 101 };
+	int n{2 + rand() % 9 };
+	cout << N << " " << n << endl << f(N, n);
+}
+
+//59
+int f(int *arr) {
+	int sum{ 0 };
+	for (int i = 1; i <= *(arr); i++) {
+		sum += *(arr + i);
+	}
+	return sum;
+}
+
+int main()
+{
+	int* arr{ new int[]{5, 123, 234, 345, 467, 543} };
+	cout << f(arr);
+}
+
+//60
+int f(int *arr, int N) {
+	int res{ *arr };
+	for (int i = 1; i < N; i++) {
+		if(res >= *(arr+i)) res = *(arr+i);
+	}
+	return res;
+}
+
+int main()
+{
+	int N{ 6 };
+	int* arr{ new int[]{1245, 123, 234, 345, 467, 543} };
+	cout << f(arr, N);
+}
+
+//61
+int main()
+{
+	for (int i = 1; i <= 500; i++) {
+		for (int j = 1; j <= i; j++) {
+			for (int k = 1; k <= j; k++) {
+				if ((i ^ 2 + j ^ 2) == (k ^ 2)) cout << "[a, b, c]: [" << i << ", " << j << ", " << k << "]" << endl;
+			}
+		}
+	}
+}
+
+//62
+int main()
+{
+	int r_code{ 432 };
+	int code{ 0 };
+	for (int i = 0; i <= 9; i++) {
+		for (int j = 0; j <= 9; j++) {
+			for (int k = 0; k <= 9; k++) {
+				code = i * 100 + j * 10 + k;
+				if (code == r_code) {
+					cout << code;
+					break;
+				}
+			}
+		}
+	}
+}
