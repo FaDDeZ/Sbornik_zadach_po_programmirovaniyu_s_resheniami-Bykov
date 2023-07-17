@@ -357,9 +357,61 @@ int main()
 }
 
 //50
+int f(int m, int n) {
+	int res{ 2 };
+	int *arr{ new int[100]{} };
+	int counter{ 0 };
+	while (res <= m || res <= n){
+		if (m % res == 0 and n % res == 0) {
+			arr[counter] = res;
+			counter++;
+		}
+		res++;
+	}
+	return m*n/arr[counter-1];
+}
 
+int main()
+{
+	int m{ 9 };
+	int n{ 12 };
+	cout << f(m, n);
+}
 
 //51
+bool f(int n) {
+	int res{ 2 };
+	int counter{ 1 };
+	while (res < n) {
+		if (n % res == 0)	counter += res;
+		res++;
+	}
+	if (counter == n) return true;
+	else return false;
+}
 
+int main()
+{
+	for (int i = 1; i <= 1000; i++) {
+		if (f(i)) cout << i << endl;
+	}
+}
 
 //52
+bool f(int n) {
+	int res{ 2 };
+	int counter{ 1 };
+	while (res <= n) {
+		if (n % res == 0)	counter += res;
+		res++;
+	}
+	if (counter == n + 1) return true;
+	else return false;
+}
+
+int main()
+{
+	for (int i = 2; i <= 1000; i++) {
+		if (f(i)) cout << i << endl;
+	}
+}
