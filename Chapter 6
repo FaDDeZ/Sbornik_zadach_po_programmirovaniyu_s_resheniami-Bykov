@@ -51,10 +51,60 @@ int main()
 }
 
 //76
-
+int main()
+{
+	srand(time(0));
+	int N{ 1 + rand() % 100 };
+	int M{ 1 + rand() % 10 };
+	int* arr{ new int [N] {} };
+	int sum{ 0 };
+	int tmp{ 0 };
+	int res{ 0 };
+	for (int i = 0; i < N; i++) {
+		arr[i] = rand() % M;
+		cout << arr[i] << " ";
+	}
+	for (int i = 0; i < N; i++) {
+		for (int j = i; j < N; j++) {
+			if (arr[i] == arr[j]) tmp += 1;
+		}
+		if (tmp > sum) {
+			sum = tmp;
+			res = arr[i];
+		}
+		tmp = 0;
+	}
+	cout << endl << "[" << res << "]: " << sum;
+}
 
 //77
-
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	srand(time(0));
+	int O{ 0 };
+	int R{ 0 };
+	string s;
+	ofstream file;
+	file.open("file.txt");
+	if (file.is_open()) {
+		for (int i = 0; i < 100; i++) {
+			O = rand() % 2;
+			if (O == 1) file << "Решка ";
+			else file << "Орел ";
+		}
+	}
+	O = 0;
+	file.close();
+	ifstream in("file.txt");
+	if (in.is_open()) {
+		while (in >> s) {
+			if (s == "Решка") R++;
+			else O++;
+		}
+	}
+	cout << "[Решка]: " << R << endl << "[Орел]: " << O;
+}
 
 //78
 
