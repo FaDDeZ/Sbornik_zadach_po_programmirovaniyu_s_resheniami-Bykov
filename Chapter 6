@@ -128,22 +128,166 @@ int main() {
 }
 
 //79
-
+int main() {
+	setlocale(LC_ALL, "rus");
+	srand(time(0));
+	char* array{ new char[100]{} };
+	char* vars{ new char[2]{'O', 'P'} };
+	int OOO{ 0 }, OOP{ 0 }, OPP{ 0 }, PPP{ 0 };
+	for (int i = 0; i < 100; i++) {
+		array[i] = vars[rand() % 2];
+		cout << array[i] << " ";
+	}
+	cout << endl;
+	for (int i = 0; i < 100; i++) {
+		if (array[i] == 'O' and array[i + 1] == 'O' and array[i + 2] == 'O') OOO += 1;
+		else if ((array[i] == 'O' and array[i + 1] == 'O' and array[i + 2] == 'P') 
+			or (array[i] == 'O' and array[i + 1] == 'P' and array[i + 2] == 'O') 
+			or (array[i] == 'P' and array[i + 1] == 'O' and array[i + 2] == 'O')) OOP += 1;
+		else if ((array[i] == 'O' and array[i + 1] == 'P' and array[i + 2] == 'P')
+			or (array[i] == 'P' and array[i + 1] == 'P' and array[i + 2] == 'O')
+			or (array[i] == 'P' and array[i + 1] == 'O' and array[i + 2] == 'P')) OPP += 1;
+		else if (array[i] == 'P' and array[i + 1] == 'P' and array[i + 2] == 'P') PPP += 1;
+	}
+	printf("OOO: %d \nOOP: %d \nOPP: %d \nPPP: %d", OOO, OOP, OPP, PPP);
+}
 
 //80
-
+int main() {
+	srand(time(0));
+	int N{ 0 }, 
+		one{ 0 }, two{ 0 }, three{ 0 }, 
+		four{ 0 }, five{ 0 }, six{ 0 };
+	cin >> N;
+	int temp{ 0 };
+	ofstream file;
+	file.open("file.txt");
+	if (file.is_open()) {
+		for (int i = 0; i < N; i++) {
+			temp = rand() % 6;
+			switch (temp)
+			{
+			case 5: 
+				file << "VI\n";
+				break;
+			case 4: 
+				file << "V\n";
+				break;
+			case 3: 
+				file << "IV\n";
+				break;
+			case 2: 
+				file << "III\n";
+				break;
+			case 1: 
+				file << "II\n";
+				break;
+			case 0: 
+				file << "I\n";
+				break;
+			default:
+				break;
+			}
+		}
+	}
+	file.close();
+	string s;
+	ifstream in("file.txt");
+	if (in.is_open()) {
+		while (in >> s) {
+			if (s == "VI") six += 1;
+			else if (s == "V") five += 1;
+			else if (s == "IV") four += 1;
+			else if (s == "III") three += 1;
+			else if (s == "II") two += 1;
+			else if (s == "I") one += 1;
+		}
+	}
+	printf("[1]: %d\n[2]: %d\n[3]: %d\n[4]: %d\n[5]: %d\n[6]: %d",
+		one, two, three, four, five, six);
+}
 
 //81
+int main() {
+	srand(time(0));
+	int N{ 10000 };
+	int a{ 0 }, b{ 0 }, c{ 0 }, d{ 0 };
+	double sum{ 0 };
+	for (int i = 0; i < N; i++) {
+		a = 1 + rand() % 6;
+		b = 1 + rand() % 6;
+		c = 1 + rand() % 6;
+		d = 1 + rand() % 6;
+		if (a + b + c + d == 21) sum++;
+	}
+	cout << sum / N;
+}
 
 
 //82
-
+int main() {
+	srand(time(0));
+	int N{ 100 };
+	int* arr{ new int[N] {} };
+	int a{ 0 }, b{ 0 }, c{ 0 }, d{ 0 };
+	for (int i = 0; i < N; i++) {
+		a = 1 + rand() % 6;
+		b = 1 + rand() % 6;
+		c = 1 + rand() % 6;
+		d = 1 + rand() % 6;
+		arr[i] = a + b + c + d;
+	}
+	for (int i = 4; i < 25; i++) {
+		cout << "[" << i << "]: ";
+		for (int j = 0; j < N; j++) {
+			if (arr[j] == i) cout << "*";
+		}
+		cout << endl;
+	}
+}
 
 //83
-
+int main() {
+	srand(time(0));
+	int N{ 1000 };
+	int q{ 00 };
+	int a{ 0 }, b{ 0 };
+	ofstream file;
+	file.open("file.txt");
+	if (file.is_open()) {
+		for (int i = 0; i < N; i++) {
+			a = rand() % 7;
+			b = rand() % 7;
+			file << a * 10 + b << " ";
+		}
+	}
+	file.close();
+	ifstream in("file.txt");
+	int temp{ 0 }, sum{ 0 };
+	if (in.is_open()) {
+		while (in >> temp) {
+			if (temp == q) sum++;
+		}
+	}
+	cout << sum;
+}
 
 //84
-
+int main() {
+	srand(time(0));
+	int N{ 1000 };
+	int sum{ 0 };
+	int a{ 0 }, b{ 0 };
+	int c{ 0 }, d{ 0 };
+	for (int i = 0; i < N; i++) {
+		a = rand() % 7;
+		b = rand() % 7;
+		c = rand() % 7;
+		d = rand() % 7;
+		if (a == c or a == d or b == c or b == d) sum++;
+	}
+	cout << sum;
+}
 
 //85
 
